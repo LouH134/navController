@@ -19,10 +19,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    
-    self.companyList = @[@"Apple mobile devices",@"Samsung mobile devices"];
+    self.productViewController = [[ProductVC alloc]init];
+    self.companyList = [[NSMutableArray alloc]initWithObjects:@"Apple", @"Samsung", @"Google", @"Twitter", nil];
     self.title = @"Mobile device makers";
+    self.imageArray = [NSMutableArray arrayWithObjects: @"Apple.png",@"Samsung.png",@"Google.png",@"Twitter.png",nil];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -56,9 +56,8 @@
     }
     
     // Configure the cell...
-    
     cell.textLabel.text = [self.companyList objectAtIndex:[indexPath row]];
-    
+    cell.imageView.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
     return cell;
 }
 
@@ -72,35 +71,54 @@
  }
  */
 
-/*
+
  // Override to support editing the table view.
  - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
  {
  if (editingStyle == UITableViewCellEditingStyleDelete) {
  // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+     [self.companyList removeObjectAtIndex:indexPath.row];
+     [self.imageArray removeObjectAtIndex:indexPath.row];
+     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+     [tableView reloadData];
  }
  else if (editingStyle == UITableViewCellEditingStyleInsert) {
  // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
  }
- }
- */
+}
 
-/*
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated{
+    [super setEditing:editing animated:animated];
+    if(editing){
+        [self.tableView setEditing:YES];
+         //self.editButtonItem.title = NSLocalizedString(@"Done", @"Done");
+       
+    }else{
+        [self.tableView setEditing:NO];
+        //self.editButtonItem.title = NSLocalizedString(@"Edit", @"Edit");
+    }
+
+}
  // Override to support rearranging the table view.
  - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
  {
+     NSString* cellToMove = self.companyList[fromIndexPath.row];
+     [self.companyList removeObjectAtIndex:fromIndexPath.row];
+     [self.companyList insertObject:cellToMove atIndex:toIndexPath.row];
+     
+     NSString* cellToMoveImage = self.imageArray[fromIndexPath.row];
+     [self.imageArray removeObjectAtIndex:fromIndexPath.row];
+     [self.imageArray insertObject:cellToMoveImage atIndex:toIndexPath.row];
+     [self.tableView reloadData];
  }
- */
 
-/*
  // Override to support conditional rearranging of the table view.
  - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
  {
  // Return NO if you do not want the item to be re-orderable.
  return YES;
  }
- */
+
 
 
 #pragma mark - Table view delegate
@@ -109,11 +127,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    self.productViewController = [[ProductVC alloc]init];
-    if (indexPath.row == 0){
+    NSString *selectedCompany = [self.companyList objectAtIndex:indexPath.row];
+    
+    if ([selectedCompany isEqualToString:@"Apple"]){
         self.productViewController.title = @"Apple mobile devices";
-    } else {
+    } else if ([selectedCompany isEqualToString:@"Samsung"]) {
         self.productViewController.title = @"Samsung mobile devices";
+    }else if ([selectedCompany isEqualToString:@"Google"]){
+        self.productViewController.title = @"Google mobile devices";
+    }else if ([selectedCompany isEqualToString:@"Twitter"]){
+        self.productViewController.title = @"Twitter mobile devices";
     }
     
     [self.navigationController
