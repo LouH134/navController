@@ -20,6 +20,12 @@
 		48A656D818163BF200746D36 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48A656D618163BF200746D36 /* InfoPlist.strings */; };
 		48A656DA18163BF200746D36 /* NavCtrlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A656D918163BF200746D36 /* NavCtrlTests.m */; };
 		48A656EE1816468000746D36 /* Sunflower.gif in Resources */ = {isa = PBXBuildFile; fileRef = 48A656ED1816468000746D36 /* Sunflower.gif */; };
+		614813701E5F74ED00D30932 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6148136F1E5F74ED00D30932 /* WebViewController.xib */; };
+		61A1EAF91E5E1EB3009756AC /* Apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A1EAF81E5E1EB3009756AC /* Apple.png */; };
+		61A1EAFB1E5E1EC0009756AC /* Google.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A1EAFA1E5E1EC0009756AC /* Google.png */; };
+		61A1EAFD1E5E1ECC009756AC /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A1EAFC1E5E1ECC009756AC /* Twitter.png */; };
+		61A1EB011E5E23CC009756AC /* Samsung.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A1EB001E5E23CC009756AC /* Samsung.png */; };
+		61A1EB041E5E4AE5009756AC /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A1EB031E5E4AE5009756AC /* WebViewController.m */; };
 		9E62FF211E4A33DC002D55B8 /* CompanyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E62FF1F1E4A33DC002D55B8 /* CompanyVC.m */; };
 		9E62FF221E4A33DC002D55B8 /* CompanyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E62FF201E4A33DC002D55B8 /* CompanyVC.xib */; };
 		9E62FF261E4A33F1002D55B8 /* ProductVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E62FF241E4A33F1002D55B8 /* ProductVC.m */; };
@@ -55,6 +61,13 @@
 		48A656D718163BF200746D36 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		48A656D918163BF200746D36 /* NavCtrlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavCtrlTests.m; sourceTree = "<group>"; };
 		48A656ED1816468000746D36 /* Sunflower.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Sunflower.gif; sourceTree = "<group>"; };
+		6148136F1E5F74ED00D30932 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		61A1EAF81E5E1EB3009756AC /* Apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Apple.png; sourceTree = "<group>"; };
+		61A1EAFA1E5E1EC0009756AC /* Google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Google.png; sourceTree = "<group>"; };
+		61A1EAFC1E5E1ECC009756AC /* Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter.png; sourceTree = "<group>"; };
+		61A1EB001E5E23CC009756AC /* Samsung.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Samsung.png; sourceTree = "<group>"; };
+		61A1EB021E5E4AE5009756AC /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		61A1EB031E5E4AE5009756AC /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		9E62FF1E1E4A33DC002D55B8 /* CompanyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyVC.h; sourceTree = "<group>"; };
 		9E62FF1F1E4A33DC002D55B8 /* CompanyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyVC.m; sourceTree = "<group>"; };
 		9E62FF201E4A33DC002D55B8 /* CompanyVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyVC.xib; sourceTree = "<group>"; };
@@ -112,6 +125,9 @@
 			children = (
 				9E62FF231E4A33F1002D55B8 /* ProductVC.h */,
 				9E62FF241E4A33F1002D55B8 /* ProductVC.m */,
+				61A1EB021E5E4AE5009756AC /* WebViewController.h */,
+				61A1EB031E5E4AE5009756AC /* WebViewController.m */,
+				6148136F1E5F74ED00D30932 /* WebViewController.xib */,
 				9E62FF251E4A33F1002D55B8 /* ProductVC.xib */,
 			);
 			name = ProductViewController;
@@ -165,6 +181,10 @@
 				48A656BC18163BF200746D36 /* NavCtrl-Info.plist */,
 				48A656BD18163BF200746D36 /* InfoPlist.strings */,
 				48A656ED1816468000746D36 /* Sunflower.gif */,
+				61A1EAF81E5E1EB3009756AC /* Apple.png */,
+				61A1EAFA1E5E1EC0009756AC /* Google.png */,
+				61A1EB001E5E23CC009756AC /* Samsung.png */,
+				61A1EAFC1E5E1ECC009756AC /* Twitter.png */,
 				48A656C018163BF200746D36 /* main.m */,
 				48A656C218163BF200746D36 /* NavCtrl-Prefix.pch */,
 				9E62FF281E4A3982002D55B8 /* Launch Screen.storyboard */,
@@ -238,6 +258,9 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Aditya Narayan";
 				TargetAttributes = {
+					48A656B018163BF200746D36 = {
+						DevelopmentTeam = WDA2L4UT66;
+					};
 					48A656CB18163BF200746D36 = {
 						TestTargetID = 48A656B018163BF200746D36;
 					};
@@ -266,10 +289,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61A1EB011E5E23CC009756AC /* Samsung.png in Resources */,
 				9E62FF291E4A3982002D55B8 /* Launch Screen.storyboard in Resources */,
+				61A1EAF91E5E1EB3009756AC /* Apple.png in Resources */,
+				61A1EAFB1E5E1EC0009756AC /* Google.png in Resources */,
 				48A656EE1816468000746D36 /* Sunflower.gif in Resources */,
 				9E62FF221E4A33DC002D55B8 /* CompanyVC.xib in Resources */,
 				9E62FF271E4A33F1002D55B8 /* ProductVC.xib in Resources */,
+				61A1EAFD1E5E1ECC009756AC /* Twitter.png in Resources */,
+				614813701E5F74ED00D30932 /* WebViewController.xib in Resources */,
 				48A656BF18163BF200746D36 /* InfoPlist.strings in Resources */,
 				48A656C718163BF200746D36 /* Images.xcassets in Resources */,
 			);
@@ -291,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E62FF211E4A33DC002D55B8 /* CompanyVC.m in Sources */,
+				61A1EB041E5E4AE5009756AC /* WebViewController.m in Sources */,
 				48A656C518163BF200746D36 /* NavControllerAppDelegate.m in Sources */,
 				48A656C118163BF200746D36 /* main.m in Sources */,
 				9E62FF261E4A33F1002D55B8 /* ProductVC.m in Sources */,
@@ -424,6 +453,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				DEVELOPMENT_TEAM = WDA2L4UT66;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NavCtrl/NavCtrl-Prefix.pch";
 				INFOPLIST_FILE = "NavCtrl/NavCtrl-Info.plist";
@@ -440,6 +470,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				DEVELOPMENT_TEAM = WDA2L4UT66;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NavCtrl/NavCtrl-Prefix.pch";
 				INFOPLIST_FILE = "NavCtrl/NavCtrl-Info.plist";
