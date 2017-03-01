@@ -7,6 +7,7 @@
 //
 
 #import "ProductVC.h"
+#import "DAO.h"
 
 @interface ProductVC ()
 
@@ -17,33 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.imageArray = @[@"Apple.png",@"Samsung.png",@"Google.png",@"Twitter.png"];
-    self.appleProducts = [NSMutableArray arrayWithObjects:@"iPad", @"iPod Touch",@"iPhone", nil];
-    self.samsungProducts = [NSMutableArray arrayWithObjects:@"Galaxy S4", @"Galaxy Note", @"Galaxy Tab",nil];
-    self.googleProducts = [NSMutableArray arrayWithObjects:@"Google Pixel", @"Google Home",@"Google Chromecast",nil];
-    self.twitterProducts = [NSMutableArray arrayWithObjects:@"Twitter Cards",@"Twitter Kit",@"TweetDeck",nil];
-
-    
+  
     // Do any additional setup after loading the view from its nib.
 }
-
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
-    
-    if ([self.title isEqualToString:@"Apple mobile devices"]) {
-        self.products = self.appleProducts;
-    }else if ([self.title isEqualToString:@"Samsung mobile devices"]) {
-        self.products = self.samsungProducts;
-    }else if ([self.title isEqualToString:@"Google mobile devices"]){
-        self.products = self.googleProducts;
-    }else if ([self.title isEqualToString:@"Twitter mobile devices"]){
-        self.products = self.twitterProducts;
-    }
-    
-    [self.tableView reloadData];
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -54,14 +31,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
     return [self.products count];
 }
@@ -74,19 +51,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     // Configure the cell...
-    cell.textLabel.text = [self.products objectAtIndex:[indexPath row]];
+    Product* currentProduct = [self.products objectAtIndex:[indexPath row]];
+    cell.textLabel.text = currentProduct.productName;
     //cell.imageView.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
-    
-    if([self.title isEqualToString:@"Apple mobile devices"])
-    {
-        cell.imageView.image = [UIImage imageNamed:self.imageArray[0]];
-    }else if ([self.title isEqualToString:@"Samsung mobile devices"]){
-        cell.imageView.image = [UIImage imageNamed:self.imageArray[1]];
-    }else if ([self.title isEqualToString:@"Google mobile devices"]){
-        cell.imageView.image = [UIImage imageNamed:self.imageArray[2]];
-    }else {
-        cell.imageView.image = [UIImage imageNamed:self.imageArray[3]];
-    }
+    cell.imageView.image = [UIImage imageNamed:currentProduct.productLogo];
     
     return cell;
 }
@@ -106,18 +74,9 @@
 {
  if (editingStyle == UITableViewCellEditingStyleDelete) {
  // Delete the row from the data source
-     
      [self.products removeObjectAtIndex:indexPath.row];
-     
-     if ([self.title isEqualToString:@"Apple mobile devices"]) {
-         self.appleProducts = self.products;
-     }else if ([self.title isEqualToString:@"Samsung mobile devices"]) {
-         self.samsungProducts = self.products;
-     }else if ([self.title isEqualToString:@"Google mobile devices"]){
-         self.googleProducts = self.products;
-     }else if ([self.title isEqualToString:@"Twitter mobile devices"]){
-         self.twitterProducts = self.products;
-     }
+     Product* currentProduct = [self.products objectAtIndex:[indexPath row]];
+     self.title = currentProduct.productName;
      
      [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
  }
@@ -163,11 +122,12 @@
  // Navigation logic may go here, for example:
  // Create the next view controller.
      self.detailViewController = [[WebViewController alloc] init];
-     
-     self.detailViewController.companyName = self.title;
-     NSString *productName = self.products[indexPath.row];
-     self.detailViewController.title = productName;
-     self.detailViewController.productName = productName;
+     Product* currentProduct = [self.products objectAtIndex:[indexPath row]];
+    
+    self.detailViewController.companyName = self.title;
+    self.detailViewController.title = currentProduct.productName;
+    self.detailViewController.productName = currentProduct.productName;
+    self.detailViewController.productURL = currentProduct.productURL;
  // Pass the selected object to the new view controller.
  
  // Push the view controller.
