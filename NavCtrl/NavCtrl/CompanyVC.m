@@ -8,6 +8,7 @@
 
 #import "CompanyVC.h"
 
+
 @interface CompanyVC ()
 
 @end
@@ -20,9 +21,12 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.productViewController = [[ProductVC alloc]init];
-    self.companyList = [[NSMutableArray alloc]initWithObjects:@"Apple", @"Samsung", @"Google", @"Twitter", nil];
     self.title = @"Mobile device makers";
-    self.imageArray = [NSMutableArray arrayWithObjects: @"Apple.png",@"Samsung.png",@"Google.png",@"Twitter.png",nil];
+    
+    //companies and products are only made once
+    DAO *myDataManager = [DAO sharedManager];
+    self.companyList = myDataManager.companies;
+ 
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -33,16 +37,8 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 1;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [self.companyList count];
 }
@@ -55,9 +51,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
+    Company *currCompany = [self.companyList objectAtIndex:[indexPath row]];
     // Configure the cell...
-    cell.textLabel.text = [self.companyList objectAtIndex:[indexPath row]];
-    cell.imageView.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
+    cell.textLabel.text = currCompany.companyName;
+    cell.imageView.image = [UIImage imageNamed:currCompany.companyLogo];
+    
     return cell;
 }
 
@@ -75,10 +73,9 @@
  // Override to support editing the table view.
  - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
  {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
+     if (editingStyle == UITableViewCellEditingStyleDelete) {
  // Delete the row from the data source
      [self.companyList removeObjectAtIndex:indexPath.row];
-     [self.imageArray removeObjectAtIndex:indexPath.row];
      [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
      [tableView reloadData];
  }
@@ -106,9 +103,9 @@
      [self.companyList removeObjectAtIndex:fromIndexPath.row];
      [self.companyList insertObject:cellToMove atIndex:toIndexPath.row];
      
-     NSString* cellToMoveImage = self.imageArray[fromIndexPath.row];
-     [self.imageArray removeObjectAtIndex:fromIndexPath.row];
-     [self.imageArray insertObject:cellToMoveImage atIndex:toIndexPath.row];
+//     NSString* cellToMoveImage = self.imageArray[fromIndexPath.row];
+//     [self.imageArray removeObjectAtIndex:fromIndexPath.row];
+//     [self.imageArray insertObject:cellToMoveImage atIndex:toIndexPath.row];
      [self.tableView reloadData];
  }
 
@@ -127,17 +124,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSString *selectedCompany = [self.companyList objectAtIndex:indexPath.row];
+    Company* currentCompany = [self.companyList objectAtIndex:[indexPath row]];
     
-    if ([selectedCompany isEqualToString:@"Apple"]){
-        self.productViewController.title = @"Apple mobile devices";
-    } else if ([selectedCompany isEqualToString:@"Samsung"]) {
-        self.productViewController.title = @"Samsung mobile devices";
-    }else if ([selectedCompany isEqualToString:@"Google"]){
-        self.productViewController.title = @"Google mobile devices";
-    }else if ([selectedCompany isEqualToString:@"Twitter"]){
-        self.productViewController.title = @"Twitter mobile devices";
-    }
+    self.productViewController.title = currentCompany.companyName;
+    self.productViewController.products = currentCompany.productsArray;
     
     [self.navigationController
      pushViewController:self.productViewController

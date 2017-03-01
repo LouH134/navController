@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ProductVC.h"
+#import "Company.h"
+#import "Product.h"
+#import "DAO.h"
 
 @interface CompanyVC : UIViewController<UITableViewDelegate, UITableViewDataSource>
 

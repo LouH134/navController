@@ -8,15 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "WebViewController.h"
+#import "Product.h"
 
 @interface ProductVC : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *products;
-@property (nonatomic, retain) NSMutableArray *appleProducts;
-@property (nonatomic, retain) NSMutableArray *samsungProducts;
-@property (nonatomic, retain) NSMutableArray *googleProducts;
-@property (nonatomic, retain) NSMutableArray *twitterProducts;
 @property (nonatomic, retain) NSArray* imageArray;
 @property (nonatomic, retain) WebViewController* detailViewController;
 
