@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddCompanyVC">
+            <connections>
+                <outlet property="companyNameTextField" destination="LNj-wa-4Ih" id="8lO-oP-BXe"/>
+                <outlet property="companyPicTextField" destination="pL9-vD-mHQ" id="9Ul-BP-H4n"/>
+                <outlet property="view" destination="iN0-l3-epB" id="zXq-Ws-wa3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LNj-wa-4Ih">
+                    <rect key="frame" x="0.0" y="127" width="375" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pL9-vD-mHQ">
+                    <rect key="frame" x="0.0" y="202" width="375" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdL-sv-zKd">
+                    <rect key="frame" x="0.0" y="91" width="122.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A12-Wu-ts7">
+                    <rect key="frame" x="0.0" y="166" width="131.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="pL9-vD-mHQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0qg-y2-CCO"/>
+                <constraint firstItem="A12-Wu-ts7" firstAttribute="top" secondItem="LNj-wa-4Ih" secondAttribute="bottom" constant="9" id="Kf2-aX-Ybb"/>
+                <constraint firstAttribute="trailing" secondItem="pL9-vD-mHQ" secondAttribute="trailing" id="QDJ-tV-aWR"/>
+                <constraint firstItem="LNj-wa-4Ih" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="RGO-th-zMo"/>
+                <constraint firstItem="LNj-wa-4Ih" firstAttribute="top" secondItem="WdL-sv-zKd" secondAttribute="bottom" constant="15.5" id="eoB-Ir-6en"/>
+                <constraint firstItem="WdL-sv-zKd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="91" id="g5c-Zc-GZH"/>
+                <constraint firstItem="A12-Wu-ts7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jao-NI-oq7"/>
+                <constraint firstItem="WdL-sv-zKd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kdq-Hi-SXb"/>
+                <constraint firstItem="pL9-vD-mHQ" firstAttribute="top" secondItem="A12-Wu-ts7" secondAttribute="bottom" constant="15.5" id="tYZ-de-F0m"/>
+                <constraint firstAttribute="trailing" secondItem="LNj-wa-4Ih" secondAttribute="trailing" id="zZN-jX-D5C"/>
+            </constraints>
+            <point key="canvasLocation" x="25.5" y="51.5"/>
+        </view>
+    </objects>
+</document>

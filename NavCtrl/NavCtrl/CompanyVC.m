@@ -19,9 +19,11 @@
     [super viewDidLoad];
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(goToAddVC)];
     self.productViewController = [[ProductVC alloc]init];
     self.title = @"Mobile device makers";
+
     
     //companies and products are only made once
     DAO *myDataManager = [DAO sharedManager];
@@ -35,6 +37,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
+
+-(void)goToAddVC
+{
+    AddCompanyVC* goToAddVC = [[AddCompanyVC alloc]init];
+    [self.navigationController
+     pushViewController:goToAddVC
+     animated:YES];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -43,6 +56,7 @@
     return [self.companyList count];
 }
 
+//creates cells
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -59,40 +73,27 @@
     return cell;
 }
 
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
-     if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
-     [self.companyList removeObjectAtIndex:indexPath.row];
-     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-     [tableView reloadData];
- }
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [self.companyList removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView reloadData];
+    }
 }
 
+//turns editing mode on and allows for selection
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated{
     [super setEditing:editing animated:animated];
     if(editing){
         [self.tableView setEditing:YES];
-         //self.editButtonItem.title = NSLocalizedString(@"Done", @"Done");
-       
+        [self.tableView setAllowsSelection:YES];
+        [self.tableView setAllowsSelectionDuringEditing:YES];
     }else{
         [self.tableView setEditing:NO];
-        //self.editButtonItem.title = NSLocalizedString(@"Edit", @"Edit");
     }
 
 }
@@ -103,20 +104,8 @@
      [self.companyList removeObjectAtIndex:fromIndexPath.row];
      [self.companyList insertObject:cellToMove atIndex:toIndexPath.row];
      
-//     NSString* cellToMoveImage = self.imageArray[fromIndexPath.row];
-//     [self.imageArray removeObjectAtIndex:fromIndexPath.row];
-//     [self.imageArray insertObject:cellToMoveImage atIndex:toIndexPath.row];
      [self.tableView reloadData];
  }
-
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
-
-
 
 #pragma mark - Table view delegate
 
@@ -124,17 +113,24 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    Company* currentCompany = [self.companyList objectAtIndex:[indexPath row]];
+    Company* selectedCompany = [self.companyList objectAtIndex:[indexPath row]];
     
-    self.productViewController.title = currentCompany.companyName;
-    self.productViewController.products = currentCompany.productsArray;
-    
-    [self.navigationController
-     pushViewController:self.productViewController
-     animated:YES];
-    
+    if(self.editing == YES)
+    {
+        self.editCompany = [[EditCompanyVC alloc]init];
+        self.editCompany.currentCompany = selectedCompany;
+        [self.navigationController pushViewController:self.editCompany animated:YES];
+    }else{
+        self.productViewController.title = selectedCompany.companyName;
+        self.productViewController.products = selectedCompany.productsArray;
+        self.productViewController.currentCompany = selectedCompany;
+        
+        
+        [self.navigationController
+         pushViewController:self.productViewController
+         animated:YES];
+    }
 }
-
 
 /*
 #pragma mark - Navigation

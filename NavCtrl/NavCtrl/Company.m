@@ -22,4 +22,15 @@
     return self;
 }
 
+-(id)initWithCompany:(NSString*)name andLogo:(NSString*)logo{
+    self = [super init];
+    if(self)
+    {
+        self.companyName = name;
+        self.companyLogo = logo;
+        self.productsArray = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 @end

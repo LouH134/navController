@@ -15,6 +15,8 @@
 @property (retain, nonatomic) NSMutableArray *companies;
 
 +(id)sharedManager;
-
+-(void)insertNewCompany:(Company*)newCompany;
+-(void)insertNewProduct:(Product*)newProduct forCompany:(Company*)currentCompany;
+-(void)editCurrentCompany:(Company*)currentCompany changeName:(NSString*)nameString andPic:(NSString*)picString;
 
 @end

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddProductVC">
+            <connections>
+                <outlet property="productName" destination="JXD-rW-5gY" id="9tg-JO-ib6"/>
+                <outlet property="productPicTextField" destination="vva-MS-Qyj" id="hso-DJ-90G"/>
+                <outlet property="productURL" destination="1Hp-FG-Ldn" id="wqN-ny-7TI"/>
+                <outlet property="view" destination="iN0-l3-epB" id="vEO-rR-TAt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzg-eB-CL9">
+                    <rect key="frame" x="8" y="107" width="128.5" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ice-Dw-hcr">
+                    <rect key="frame" x="8" y="281" width="113" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JXD-rW-5gY">
+                    <rect key="frame" x="8" y="147" width="359" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vva-MS-Qyj">
+                    <rect key="frame" x="8" y="237" width="359" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Hp-FG-Ldn">
+                    <rect key="frame" x="8" y="329" width="367" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovz-UB-zfs">
+                    <rect key="frame" x="8" y="189" width="138" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Gzg-eB-CL9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" constant="99" id="0X9-Rf-dFj"/>
+                <constraint firstItem="JXD-rW-5gY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="D70-at-V8o"/>
+                <constraint firstItem="JXD-rW-5gY" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="Klc-eQ-ygw"/>
+                <constraint firstItem="JXD-rW-5gY" firstAttribute="top" secondItem="Gzg-eB-CL9" secondAttribute="bottom" constant="16" id="P0g-f1-asu"/>
+                <constraint firstItem="Gzg-eB-CL9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="R4c-9i-swr"/>
+                <constraint firstItem="Ice-Dw-hcr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="T97-1x-QRV"/>
+                <constraint firstItem="vva-MS-Qyj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="VWX-EU-B3v"/>
+                <constraint firstItem="ovz-UB-zfs" firstAttribute="top" secondItem="JXD-rW-5gY" secondAttribute="bottom" constant="12" id="XLz-3A-kVw"/>
+                <constraint firstItem="1Hp-FG-Ldn" firstAttribute="top" secondItem="Ice-Dw-hcr" secondAttribute="bottom" constant="24" id="eE4-2l-4lU"/>
+                <constraint firstItem="vva-MS-Qyj" firstAttribute="top" secondItem="ovz-UB-zfs" secondAttribute="bottom" constant="24" id="ej5-ED-sLh"/>
+                <constraint firstItem="1Hp-FG-Ldn" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" constant="8" id="gs4-b0-5CE"/>
+                <constraint firstItem="Ice-Dw-hcr" firstAttribute="top" secondItem="vva-MS-Qyj" secondAttribute="bottom" constant="14" id="rD6-h5-zJ3"/>
+                <constraint firstItem="vva-MS-Qyj" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="sWt-KF-oAw"/>
+                <constraint firstItem="1Hp-FG-Ldn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="tk7-uG-Aeo"/>
+                <constraint firstItem="ovz-UB-zfs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="xIK-P0-CH7"/>
+            </constraints>
+            <point key="canvasLocation" x="32.5" y="91.5"/>
+        </view>
+    </objects>
+</document>

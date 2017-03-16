@@ -44,11 +44,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 -(void)configWebView
 {
+    CGRect screenBounds = [[UIScreen mainScreen]bounds];
+    
     WKWebViewConfiguration* theConfiguration = [[WKWebViewConfiguration alloc]init];
-    self.webView = [[WKWebView alloc]initWithFrame:self.view.frame configuration:theConfiguration];
-    //[self.view addSubview:webView];
+    self.webView = [[WKWebView alloc]initWithFrame:screenBounds configuration:theConfiguration];
     self.webView.navigationDelegate = self;
 }
 
