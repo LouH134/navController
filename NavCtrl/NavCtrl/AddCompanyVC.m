@@ -41,10 +41,10 @@
 
 -(void)saveNewCompany
 {
-    if(self.companyNameTextField.hasText && self.companyPicTextField.hasText)
+    if(self.companyNameTextField.hasText && self.companyPicTextField.hasText && self.companyStockTxtField.hasText)
     {
         //call dao that calls company class add new company to mutablearray
-        Company *newlyAddedCompany = [[Company alloc] initWithCompany:self.companyNameTextField.text andLogo:self.companyPicTextField.text];
+        Company *newlyAddedCompany = [[Company alloc] initWithCompany:self.companyNameTextField.text andLogo:self.companyPicTextField.text andStockSymbol:self.companyStockTxtField.text];
         [self.dao insertNewCompany:newlyAddedCompany];
         NSLog(@"saved");
         UINavigationController *navigationController = self.navigationController;
@@ -82,6 +82,7 @@
 - (void)dealloc {
     [_companyNameTextField release];
     [_companyPicTextField release];
+    [_companyStockTxtField release];
     [super dealloc];
 }
 @end

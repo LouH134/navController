@@ -26,10 +26,16 @@
 
     
     //companies and products are only made once
-    DAO *myDataManager = [DAO sharedManager];
-    self.companyList = myDataManager.companies;
+    self.dataManager = [DAO sharedManager];
+    self.dataManager.delegate = self;
+    
+    
  
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)stockPricesUpdated {
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,6 +45,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];
+    [self.dataManager getURLString];
+    [self.dataManager getAPIData];
 }
 
 -(void)goToAddVC
@@ -53,7 +61,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.companyList count];
+    return [self.dataManager.companies count];
 }
 
 //creates cells
@@ -62,13 +70,17 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    Company *currCompany = [self.companyList objectAtIndex:[indexPath row]];
+    Company *currCompany = [self.dataManager.companies objectAtIndex:[indexPath row]];
     // Configure the cell...
     cell.textLabel.text = currCompany.companyName;
+    cell.detailTextLabel.text = currCompany.stockPrice;
     cell.imageView.image = [UIImage imageNamed:currCompany.companyLogo];
+    
+    
+    
     
     return cell;
 }
@@ -79,7 +91,7 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [self.companyList removeObjectAtIndex:indexPath.row];
+        [self.dataManager.companies removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [tableView reloadData];
     }
@@ -100,9 +112,9 @@
  // Override to support rearranging the table view.
  - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
  {
-     NSString* cellToMove = self.companyList[fromIndexPath.row];
-     [self.companyList removeObjectAtIndex:fromIndexPath.row];
-     [self.companyList insertObject:cellToMove atIndex:toIndexPath.row];
+     NSString* cellToMove = self.dataManager.companies[fromIndexPath.row];
+     [self.dataManager.companies removeObjectAtIndex:fromIndexPath.row];
+     [self.dataManager.companies insertObject:cellToMove atIndex:toIndexPath.row];
      
      [self.tableView reloadData];
  }
@@ -113,7 +125,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    Company* selectedCompany = [self.companyList objectAtIndex:[indexPath row]];
+    Company* selectedCompany = [self.dataManager.companies objectAtIndex:[indexPath row]];
     
     if(self.editing == YES)
     {

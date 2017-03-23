@@ -14,13 +14,14 @@
 #import "AddCompanyVC.h"
 #import "EditCompanyVC.h"
 
-@interface CompanyVC : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface CompanyVC : UIViewController<UITableViewDelegate, UITableViewDataSource, DAODelegate>
 
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *companyList;
 @property (nonatomic, retain) ProductVC *productViewController;
 @property (nonatomic, retain) AddCompanyVC *addCompanyVC;
 @property (nonatomic, retain) EditCompanyVC* editCompany;
+@property (nonatomic, retain) DAO* dataManager;
 
 
 @end

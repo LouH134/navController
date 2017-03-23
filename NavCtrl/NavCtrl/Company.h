@@ -14,8 +14,11 @@
 @property (strong, nonatomic) NSString* companyName;
 @property (strong, nonatomic) NSString* companyLogo;
 @property (strong, nonatomic) NSMutableArray* productsArray;
+@property (strong, nonatomic) NSString* stockSymbol;
+@property (strong, nonatomic) NSString* stockPrice;
+
 
 -(id)initWithCompany:(NSString*)name andLogo:(NSString*)logo andProducts:(NSMutableArray*)products;
-
--(id)initWithCompany:(NSString*)name andLogo:(NSString*)logo;
+-(id)initWithCompany:(NSString*)name andLogo:(NSString*)logo andStockSymbol:(NSString*)symbol;
 @end
+

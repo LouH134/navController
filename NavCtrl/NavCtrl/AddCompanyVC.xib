@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="companyNameTextField" destination="LNj-wa-4Ih" id="8lO-oP-BXe"/>
                 <outlet property="companyPicTextField" destination="pL9-vD-mHQ" id="9Ul-BP-H4n"/>
+                <outlet property="companyStockTxtField" destination="BF3-PE-AJD" id="MqP-CZ-Tud"/>
                 <outlet property="view" destination="iN0-l3-epB" id="zXq-Ws-wa3"/>
             </connections>
         </placeholder>
@@ -39,23 +40,40 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Stock Symbol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTD-EA-J2w">
+                    <rect key="frame" x="0.0" y="240" width="183" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A12-Wu-ts7">
                     <rect key="frame" x="0.0" y="166" width="131.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BF3-PE-AJD" userLabel="Company Stock Symbol">
+                    <rect key="frame" x="0.0" y="269" width="375" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="pL9-vD-mHQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0qg-y2-CCO"/>
+                <constraint firstItem="BF3-PE-AJD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Eqf-nU-9ff"/>
                 <constraint firstItem="A12-Wu-ts7" firstAttribute="top" secondItem="LNj-wa-4Ih" secondAttribute="bottom" constant="9" id="Kf2-aX-Ybb"/>
+                <constraint firstItem="zTD-EA-J2w" firstAttribute="top" secondItem="pL9-vD-mHQ" secondAttribute="bottom" constant="8" id="KxI-0j-6jA"/>
                 <constraint firstAttribute="trailing" secondItem="pL9-vD-mHQ" secondAttribute="trailing" id="QDJ-tV-aWR"/>
                 <constraint firstItem="LNj-wa-4Ih" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="RGO-th-zMo"/>
+                <constraint firstItem="zTD-EA-J2w" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="T8r-5y-unM"/>
+                <constraint firstAttribute="trailing" secondItem="BF3-PE-AJD" secondAttribute="trailing" id="bug-Ld-zzW"/>
                 <constraint firstItem="LNj-wa-4Ih" firstAttribute="top" secondItem="WdL-sv-zKd" secondAttribute="bottom" constant="15.5" id="eoB-Ir-6en"/>
                 <constraint firstItem="WdL-sv-zKd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="91" id="g5c-Zc-GZH"/>
                 <constraint firstItem="A12-Wu-ts7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jao-NI-oq7"/>
                 <constraint firstItem="WdL-sv-zKd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kdq-Hi-SXb"/>
+                <constraint firstItem="BF3-PE-AJD" firstAttribute="top" secondItem="zTD-EA-J2w" secondAttribute="bottom" constant="8" id="sth-0H-YY6"/>
                 <constraint firstItem="pL9-vD-mHQ" firstAttribute="top" secondItem="A12-Wu-ts7" secondAttribute="bottom" constant="15.5" id="tYZ-de-F0m"/>
                 <constraint firstAttribute="trailing" secondItem="LNj-wa-4Ih" secondAttribute="trailing" id="zZN-jX-D5C"/>
             </constraints>

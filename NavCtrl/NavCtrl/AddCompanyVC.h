@@ -14,6 +14,7 @@
 @interface AddCompanyVC : UIViewController
 @property (retain, nonatomic) IBOutlet UITextField *companyNameTextField;
 @property (retain, nonatomic) IBOutlet UITextField *companyPicTextField;
+@property (retain, nonatomic) IBOutlet UITextField *companyStockTxtField;
 @property (retain, nonatomic)DAO* dao;
 
 
