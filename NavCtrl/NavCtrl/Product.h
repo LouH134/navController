@@ -12,8 +12,8 @@
 
 @property (strong,nonatomic)NSString* productName;
 @property (strong, nonatomic)NSString* productLogo;
-@property (strong, nonatomic)NSURL* productURL;
+@property (strong, nonatomic)NSString* productURL;
 
--(id)initWithProduct:(NSString*)name andLogo: (NSString*)logo andURL:(NSURL*)productURL;
+-(id)initWithProduct:(NSString*)name andLogo: (NSString*)logo andURL:(NSString*)productURL;
 
 @end

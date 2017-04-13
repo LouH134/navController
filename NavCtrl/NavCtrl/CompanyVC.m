@@ -15,23 +15,22 @@
 
 @implementation CompanyVC
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(goToAddVC)];
     self.productViewController = [[ProductVC alloc]init];
     self.title = @"Mobile device makers";
-
     
     //companies and products are only made once
     self.dataManager = [DAO sharedManager];
     self.dataManager.delegate = self;
     
     
- 
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)stockPricesUpdated {
@@ -43,11 +42,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)checkEmpty
+{
+    if([self.dataManager.companies count] == 0)
+    {
+        [self.emptyView setHidden:NO];
+        [self.tableView setHidden:YES];
+    }else{
+        [self.emptyView setHidden:YES];
+        [self.tableView setHidden:NO];
+    }
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];
     [self.dataManager getURLString];
     [self.dataManager getAPIData];
+    [self checkEmpty];
+    
 }
+
 
 -(void)goToAddVC
 {
@@ -91,8 +105,9 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [self.dataManager.companies removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        Company *selectedCompany = [self.dataManager.companies objectAtIndex:indexPath.row];
+        [self.dataManager deleteCompany:selectedCompany];
+        [self checkEmpty];
         [tableView reloadData];
     }
 }
@@ -136,7 +151,7 @@
         self.productViewController.title = selectedCompany.companyName;
         self.productViewController.products = selectedCompany.productsArray;
         self.productViewController.currentCompany = selectedCompany;
-        
+
         
         [self.navigationController
          pushViewController:self.productViewController
@@ -144,18 +159,26 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)unDo:(id)sender {
+    [self.dataManager undoChanges];
+    [self.tableView reloadData];
 }
-*/
+
+- (IBAction)reDo:(id)sender {
+    [self.dataManager redoChanges];
+    [self.tableView reloadData];
+}
+- (IBAction)addCompanyButton:(id)sender {
+    AddCompanyVC* goToAddVC = [[AddCompanyVC alloc]init];
+    [self.navigationController
+     pushViewController:goToAddVC
+     animated:YES];
+}
+
 
 - (void)dealloc {
     [_tableView release];
+    [_emptyView release];
     [super dealloc];
 }
 @end

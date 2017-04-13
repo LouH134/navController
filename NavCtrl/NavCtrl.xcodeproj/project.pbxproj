@@ -25,6 +25,8 @@
 		610ACD981E72007800159D5D /* EditProductVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 610ACD961E72007800159D5D /* EditProductVC.m */; };
 		610ACD991E72007800159D5D /* EditProductVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 610ACD971E72007800159D5D /* EditProductVC.xib */; };
 		614813701E5F74ED00D30932 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6148136F1E5F74ED00D30932 /* WebViewController.xib */; };
+		6149B8251E845F3B0060AE0A /* CompanyProductModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6149B8231E845F3B0060AE0A /* CompanyProductModel.xcdatamodeld */; };
+		614A4D961E84797500516FCD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614A4D951E84797500516FCD /* CoreData.framework */; };
 		6154CA801E70B1CA006597CD /* iPad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6154CA7F1E70B1C9006597CD /* iPad.jpg */; };
 		6154CA821E70B1CE006597CD /* iPhone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6154CA811E70B1CE006597CD /* iPhone.jpg */; };
 		6154CA841E70B1D6006597CD /* ipodtouch.png in Resources */ = {isa = PBXBuildFile; fileRef = 6154CA831E70B1D6006597CD /* ipodtouch.png */; };
@@ -38,6 +40,7 @@
 		6154E0131E6F4F4D00EE6043 /* AddProductVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6154E0121E6F4F4D00EE6043 /* AddProductVC.xib */; };
 		615813D31E673AE70080EC51 /* DAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 615813D21E673AE70080EC51 /* DAO.m */; };
 		615813D61E6778FD0080EC51 /* AddCompanyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 615813D51E6778FD0080EC51 /* AddCompanyVC.m */; };
+		616F404E1E9ECF7100D74EFA /* emptystate-homeView.png in Resources */ = {isa = PBXBuildFile; fileRef = 616F404D1E9ECF7100D74EFA /* emptystate-homeView.png */; };
 		61A1EAF91E5E1EB3009756AC /* Apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A1EAF81E5E1EB3009756AC /* Apple.png */; };
 		61A1EAFB1E5E1EC0009756AC /* Google.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A1EAFA1E5E1EC0009756AC /* Google.png */; };
 		61A1EAFD1E5E1ECC009756AC /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A1EAFC1E5E1ECC009756AC /* Twitter.png */; };
@@ -88,6 +91,8 @@
 		610ACD961E72007800159D5D /* EditProductVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProductVC.m; sourceTree = "<group>"; };
 		610ACD971E72007800159D5D /* EditProductVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProductVC.xib; sourceTree = "<group>"; };
 		6148136F1E5F74ED00D30932 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		6149B8241E845F3B0060AE0A /* CompanyProductModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CompanyProductModel.xcdatamodel; sourceTree = "<group>"; };
+		614A4D951E84797500516FCD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6154CA7F1E70B1C9006597CD /* iPad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iPad.jpg; sourceTree = "<group>"; };
 		6154CA811E70B1CE006597CD /* iPhone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iPhone.jpg; sourceTree = "<group>"; };
 		6154CA831E70B1D6006597CD /* ipodtouch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipodtouch.png; sourceTree = "<group>"; };
@@ -104,6 +109,7 @@
 		615813D21E673AE70080EC51 /* DAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAO.m; sourceTree = "<group>"; };
 		615813D41E6778FD0080EC51 /* AddCompanyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCompanyVC.h; sourceTree = "<group>"; };
 		615813D51E6778FD0080EC51 /* AddCompanyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCompanyVC.m; sourceTree = "<group>"; };
+		616F404D1E9ECF7100D74EFA /* emptystate-homeView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emptystate-homeView.png"; sourceTree = "<group>"; };
 		61A1EAF81E5E1EB3009756AC /* Apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Apple.png; sourceTree = "<group>"; };
 		61A1EAFA1E5E1EC0009756AC /* Google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Google.png; sourceTree = "<group>"; };
 		61A1EAFC1E5E1ECC009756AC /* Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter.png; sourceTree = "<group>"; };
@@ -129,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				614A4D961E84797500516FCD /* CoreData.framework in Frameworks */,
 				48A656B718163BF200746D36 /* CoreGraphics.framework in Frameworks */,
 				48A656B918163BF200746D36 /* UIKit.framework in Frameworks */,
 				48A656B518163BF200746D36 /* Foundation.framework in Frameworks */,
@@ -153,6 +160,7 @@
 			children = (
 				48A656C318163BF200746D36 /* NavControllerAppDelegate.h */,
 				48A656C418163BF200746D36 /* NavControllerAppDelegate.m */,
+				6149B8231E845F3B0060AE0A /* CompanyProductModel.xcdatamodeld */,
 			);
 			name = AppDelegate;
 			sourceTree = "<group>";
@@ -205,6 +213,7 @@
 		48A656B318163BF200746D36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				614A4D951E84797500516FCD /* CoreData.framework */,
 				48A656B418163BF200746D36 /* Foundation.framework */,
 				48A656B618163BF200746D36 /* CoreGraphics.framework */,
 				48A656B818163BF200746D36 /* UIKit.framework */,
@@ -232,6 +241,7 @@
 		48A656BB18163BF200746D36 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				616F404D1E9ECF7100D74EFA /* emptystate-homeView.png */,
 				6154CA8B1E70BABE006597CD /* GooglePixel.jpg */,
 				6154CA8F1E70BACB006597CD /* Chromecast.jpg */,
 				6154CA8D1E70BAC5006597CD /* GoogleHome.jpg */,
@@ -408,6 +418,7 @@
 				9E62FF271E4A33F1002D55B8 /* ProductVC.xib in Resources */,
 				6154CA881E70B3D7006597CD /* GalaxyS4.jpg in Resources */,
 				610ACD941E71BA5300159D5D /* EditCompanyVC.xib in Resources */,
+				616F404E1E9ECF7100D74EFA /* emptystate-homeView.png in Resources */,
 				6154CA821E70B1CE006597CD /* iPhone.jpg in Resources */,
 				6154CA8E1E70BAC5006597CD /* GoogleHome.jpg in Resources */,
 				61A1EAFD1E5E1ECC009756AC /* Twitter.png in Resources */,
@@ -446,6 +457,7 @@
 				61A1EB041E5E4AE5009756AC /* WebViewController.m in Sources */,
 				615813D31E673AE70080EC51 /* DAO.m in Sources */,
 				48A656C518163BF200746D36 /* NavControllerAppDelegate.m in Sources */,
+				6149B8251E845F3B0060AE0A /* CompanyProductModel.xcdatamodeld in Sources */,
 				48A656C118163BF200746D36 /* main.m in Sources */,
 				610ACD981E72007800159D5D /* EditProductVC.m in Sources */,
 				9E62FF261E4A33F1002D55B8 /* ProductVC.m in Sources */,
@@ -583,6 +595,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NavCtrl/NavCtrl-Prefix.pch";
 				INFOPLIST_FILE = "NavCtrl/NavCtrl-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "turntotech.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -600,6 +613,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NavCtrl/NavCtrl-Prefix.pch";
 				INFOPLIST_FILE = "NavCtrl/NavCtrl-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "turntotech.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -680,6 +694,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6149B8231E845F3B0060AE0A /* CompanyProductModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6149B8241E845F3B0060AE0A /* CompanyProductModel.xcdatamodel */,
+			);
+			currentVersion = 6149B8241E845F3B0060AE0A /* CompanyProductModel.xcdatamodel */;
+			path = CompanyProductModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 48A656A918163BF200746D36 /* Project object */;
 }

@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompanyVC">
             <connections>
+                <outlet property="emptyView" destination="VNi-wV-yGg" id="PRx-ab-bL8"/>
                 <outlet property="tableView" destination="b9s-ce-C0v" id="jhV-HN-9fx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -28,14 +30,95 @@
                         <outlet property="delegate" destination="-1" id="rfX-ae-JqV"/>
                     </connections>
                 </tableView>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yri-Vh-Vqp">
+                    <rect key="frame" x="0.0" y="599" width="375" height="68"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBk-4l-a78">
+                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="68"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <state key="normal" title="Undo"/>
+                            <connections>
+                                <action selector="unDo:" destination="-1" eventType="touchUpInside" id="J5N-GP-bap"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ8-DW-yRT">
+                            <rect key="frame" x="187.5" y="0.0" width="187.5" height="68"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <state key="normal" title="Redo"/>
+                            <connections>
+                                <action selector="reDo:" destination="-1" eventType="touchUpInside" id="PIV-o0-MXG"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="ZJ8-DW-yRT" firstAttribute="width" secondItem="oBk-4l-a78" secondAttribute="width" id="gvX-LW-Oj4"/>
+                        <constraint firstItem="oBk-4l-a78" firstAttribute="width" secondItem="Yri-Vh-Vqp" secondAttribute="width" multiplier="1/2" id="vRi-DH-mH0"/>
+                    </constraints>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VNi-wV-yGg">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You currently don't have any companies added" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0r2-ZK-84g">
+                            <rect key="frame" x="84" y="294" width="207" height="79"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="207" id="AON-oW-C4x"/>
+                                <constraint firstAttribute="height" constant="79" id="coP-0p-hh8"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qX-65-UVV">
+                            <rect key="frame" x="93" y="406" width="188" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="OU5-Qx-lam"/>
+                                <constraint firstAttribute="width" constant="188" id="i2o-tC-I1A"/>
+                            </constraints>
+                            <state key="normal" title="+Add Company"/>
+                            <connections>
+                                <action selector="addCompanyButton:" destination="-1" eventType="touchUpInside" id="WLt-76-fWJ"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptystate-homeView.png" translatesAutoresizingMaskIntoConstraints="NO" id="7LB-sj-hBG">
+                            <rect key="frame" x="67" y="158" width="240" height="128"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="240" id="EQT-l5-gSB"/>
+                                <constraint firstAttribute="height" constant="128" id="sef-Py-JEV"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="3qX-65-UVV" firstAttribute="top" secondItem="0r2-ZK-84g" secondAttribute="bottom" constant="33" id="26b-et-ffW"/>
+                        <constraint firstItem="3qX-65-UVV" firstAttribute="centerX" secondItem="VNi-wV-yGg" secondAttribute="centerX" id="4AK-zv-thy"/>
+                        <constraint firstItem="0r2-ZK-84g" firstAttribute="centerY" secondItem="VNi-wV-yGg" secondAttribute="centerY" id="KmM-QR-oic"/>
+                        <constraint firstItem="0r2-ZK-84g" firstAttribute="centerX" secondItem="VNi-wV-yGg" secondAttribute="centerX" id="oGo-mZ-alo"/>
+                        <constraint firstItem="0r2-ZK-84g" firstAttribute="top" secondItem="7LB-sj-hBG" secondAttribute="bottom" constant="8" id="t50-PZ-tTG"/>
+                        <constraint firstItem="7LB-sj-hBG" firstAttribute="centerX" secondItem="VNi-wV-yGg" secondAttribute="centerX" id="zX8-xS-HAt"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Yri-Vh-Vqp" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="642-6X-mhD"/>
+                <constraint firstAttribute="bottom" secondItem="VNi-wV-yGg" secondAttribute="bottom" id="EFd-jI-4Ow"/>
+                <constraint firstAttribute="trailing" secondItem="VNi-wV-yGg" secondAttribute="trailing" id="H3W-CI-0ap"/>
+                <constraint firstItem="Yri-Vh-Vqp" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1/10" constant="1" id="KjN-Uy-LbB"/>
+                <constraint firstItem="VNi-wV-yGg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MKj-lc-ob0"/>
+                <constraint firstItem="Yri-Vh-Vqp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Rx5-vf-9Kb"/>
+                <constraint firstAttribute="bottom" secondItem="Yri-Vh-Vqp" secondAttribute="bottom" id="SwY-Ji-Icl"/>
                 <constraint firstItem="b9s-ce-C0v" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bEQ-Zw-aaw"/>
                 <constraint firstAttribute="trailing" secondItem="b9s-ce-C0v" secondAttribute="trailing" id="ebp-qQ-E2j"/>
                 <constraint firstAttribute="bottom" secondItem="b9s-ce-C0v" secondAttribute="bottom" id="l6Y-x6-gSp"/>
+                <constraint firstItem="VNi-wV-yGg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nNP-Ka-air"/>
                 <constraint firstItem="b9s-ce-C0v" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vPr-cD-R1S"/>
             </constraints>
+            <point key="canvasLocation" x="32.5" y="97.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="emptystate-homeView.png" width="72" height="72"/>
+    </resources>
 </document>

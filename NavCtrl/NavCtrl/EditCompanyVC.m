@@ -114,7 +114,7 @@
         //than currentcompanypic text is = companypictextfield
         self.currentCompany.companyLogo = self.companyPicTextField.text;
         //put the new strings into dao
-        [self.dao editCurrentCompany:self.currentCompany changeName:self.companyNameTextField.text andPic:self.companyPicTextField.text];
+        [self.dao modifyCompany:self.currentCompany changeName:self.companyNameTextField.text andPic:self.companyPicTextField.text];
         
         UINavigationController *navigationController = self.navigationController;
         [navigationController popViewControllerAnimated:YES];

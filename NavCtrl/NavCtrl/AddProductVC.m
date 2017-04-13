@@ -37,10 +37,10 @@
 {
     if(self.productName.hasText && self.productPicTextField.hasText && self.productURL.hasText)
     {
-        Product* newlyAddedProduct = [[Product alloc]initWithProduct:self.productName.text andLogo:self.productPicTextField.text andURL:[NSURL URLWithString:self.productURL.text]];
-        [self.dao insertNewProduct:newlyAddedProduct forCompany:self.currentCompany];
-        UINavigationController *navigationController = self.navigationController;
-        [navigationController popViewControllerAnimated:YES];
+        Product* newlyAddedProduct = [[Product alloc]initWithProduct:self.productName.text andLogo:self.productPicTextField.text andURL:self.productURL.text];
+        [self.dao addProduct:newlyAddedProduct forCompany:self.currentCompany];
+        
+        [self.navigationController popViewControllerAnimated:YES];
     }else{
         [self checkForText];
     }

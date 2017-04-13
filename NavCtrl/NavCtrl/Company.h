@@ -19,6 +19,8 @@
 
 
 -(id)initWithCompany:(NSString*)name andLogo:(NSString*)logo andProducts:(NSMutableArray*)products;
+
 -(id)initWithCompany:(NSString*)name andLogo:(NSString*)logo andStockSymbol:(NSString*)symbol;
+
 @end
 

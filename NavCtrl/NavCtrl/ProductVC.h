@@ -22,5 +22,9 @@
 @property (nonatomic, retain) WebViewController* detailViewController;
 @property (nonatomic, retain) Company* currentCompany;
 @property (nonatomic, retain) EditProductVC* editProduct;
+@property (nonatomic, retain) DAO* dataManager;
+@property (retain, nonatomic) IBOutlet UIImageView *companyLogo;
+@property (retain, nonatomic) IBOutlet UILabel *companyTitle;
+
 
 @end

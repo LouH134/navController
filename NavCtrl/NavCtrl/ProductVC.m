@@ -19,9 +19,11 @@
     [super viewDidLoad];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(goBack)];
-    UIBarButtonItem* goToAddProducts = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(goToProductVC)];
-    NSArray* rightSideButtons = @[self.editButtonItem, goToAddProducts];
-    self.navigationItem.rightBarButtonItems = rightSideButtons;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(goToProductVC)];
+
+    self.dataManager = [DAO sharedManager];
+    
+    
   
     // Do any additional setup after loading the view from its nib.
 }
@@ -33,6 +35,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];
+    self.companyLogo.image = [UIImage imageNamed:self.currentCompany.companyLogo];
+    self.companyTitle.text = self.currentCompany.companyName;
 }
 
 -(void)goBack
@@ -63,7 +67,7 @@
 {
 
     // Return the number of rows in the section.
-    return [self.products count];
+    return [self.currentCompany.productsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,7 +78,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     // Configure the cell...
-    Product* currentProduct = [self.products objectAtIndex:[indexPath row]];
+    Product* currentProduct = [self.currentCompany.productsArray objectAtIndex:[indexPath row]];
     cell.textLabel.text = currentProduct.productName;
     cell.imageView.image = [UIImage imageNamed:currentProduct.productLogo];
     
@@ -86,11 +90,10 @@
 {
  if (editingStyle == UITableViewCellEditingStyleDelete) {
  // Delete the row from the data source
-     [self.products removeObjectAtIndex:indexPath.row];
-     Product* currentProduct = [self.products objectAtIndex:[indexPath row]];
+     Product* currentProduct = [self.currentCompany.productsArray objectAtIndex:[indexPath row]];
+     [self.dataManager deleteProduct:currentProduct from:self.currentCompany];
      self.title = currentProduct.productName;
-     
-     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+     [self.tableView reloadData];
  }
 }
 
@@ -134,27 +137,31 @@
  // Create the next view controller.
     self.detailViewController = [[WebViewController alloc] init];
     Product* currentProduct = [self.products objectAtIndex:[indexPath row]];
-    
-    if(self.editing == YES)
-    {
-        self.editProduct = [[EditProductVC alloc]init];
-        self.editProduct.currentProduct = currentProduct;
-        [self.navigationController pushViewController:self.editProduct animated:YES];
-        
-    }else{
+
         self.detailViewController.companyName = self.title;
         self.detailViewController.title = currentProduct.productName;
         self.detailViewController.productName = currentProduct.productName;
         self.detailViewController.productURL = currentProduct.productURL;
+        self.detailViewController.currentProduct = currentProduct;
+        self.detailViewController.currentCompany = self.currentCompany;
+    
         
         // Push the view controller.
         [self.navigationController pushViewController:self.detailViewController animated:YES];
-    }
     
+}
+- (IBAction)addProduct:(id)sender {
+    AddProductVC* goToProductVC = [[AddProductVC alloc]init];
+    goToProductVC.currentCompany = self.currentCompany;
+    [self.navigationController
+     pushViewController:goToProductVC
+     animated:YES];
 }
  
 - (void)dealloc {
     [_tableView release];
+    [_companyLogo release];
+    [_companyTitle release];
     [super dealloc];
 }
 @end

@@ -10,7 +10,7 @@
 
 @implementation Product
 
--(id)initWithProduct:(NSString *)name andLogo:(NSString *)logo andURL:(NSURL *)productURL
+-(id)initWithProduct:(NSString *)name andLogo:(NSString *)logo andURL:(NSString*)productURL
 {
     self = [super init];
     if(self)

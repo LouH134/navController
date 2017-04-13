@@ -19,6 +19,7 @@
 @property (retain, nonatomic) IBOutlet UITextField *editProductURL;
 @property (retain, nonatomic) DAO* dao;
 @property (retain, nonatomic) Product* currentProduct;
+@property (retain, nonatomic) Company* currentCompany;
 @property double productNameLabelCoordinate;
 @property double productNameTxtFieldCoordinate;
 @property double productPicLabelCoordinate;

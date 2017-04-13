@@ -18,7 +18,19 @@
     [super viewDidLoad];
     [self configWebView];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(goToEditProductVC)];
+    
    
+}
+
+-(void)goToEditProductVC
+{
+    self.editProduct = [[EditProductVC alloc]init];
+    self.editProduct.currentProduct = self.currentProduct;
+    self.editProduct.currentCompany = self.currentCompany;
+    [self.navigationController pushViewController:self.editProduct animated:YES];
+
+    
 }
 -(void)viewWillAppear:(BOOL)animated{
     if([self.companyName isEqualToString:@"Apple"])
@@ -58,15 +70,19 @@
 {
     if([self.productName  isEqual: @"iPhone"])
     {
-        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:self.productURL];
+        NSURL* iPhoneURL = [NSURL URLWithString:self.productURL];
+        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:iPhoneURL];
         [self.webView loadRequest:nsRequest];
         [self.view addSubview:self.webView];
     }else if ([self.productName isEqual: @"iPad"]){
-        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:self.productURL];
+        
+        NSURL* iPadURL = [NSURL URLWithString:self.productURL];
+        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:iPadURL];
         [self.webView loadRequest:nsRequest];
         [self.view addSubview:self.webView];
     }else if ([self.productName isEqual:@"iPod Touch"]){
-        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:self.productURL];
+        NSURL* iPodTouchURL = [NSURL URLWithString:self.productURL];
+        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:iPodTouchURL];
         [self.webView loadRequest:nsRequest];
         [self.view addSubview:self.webView];
     }
@@ -76,15 +92,18 @@
 {
     if([self.productName isEqual:@"Galaxy S4"])
     {
-        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:self.productURL];
+        NSURL* galaxyS4URL = [NSURL URLWithString:self.productURL];
+        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:galaxyS4URL];
         [self.webView loadRequest:nsRequest];
         [self.view addSubview:self.webView];
     }else if ([self.productName isEqual:@"Galaxy Note"]){
-        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:self.productURL];
+        NSURL* galaxyNoteURL = [NSURL URLWithString:self.productURL];
+        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:galaxyNoteURL];
         [self.webView loadRequest:nsRequest];
         [self.view addSubview:self.webView];
     }else if ([self.productName isEqual:@"Galaxy Tab"]){
-        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:self.productURL];
+        NSURL* galaxyTabURL = [NSURL URLWithString:self.productURL];
+        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:galaxyTabURL];
         [self.webView loadRequest:nsRequest];
         [self.view addSubview:self.webView];
     }
@@ -94,17 +113,20 @@
 {
     if([self.productName isEqual:@"Google Pixel"])
     {
-        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:self.productURL];
+        NSURL* googlePixelURL = [NSURL URLWithString:self.productURL];
+        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:googlePixelURL];
         [self.webView loadRequest:nsRequest];
         [self.view addSubview:self.webView];
         
     }else if ([self.productName isEqual:@"Google Home"]){
-        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:self.productURL];
+        NSURL* googleHomeURL = [NSURL URLWithString:self.productURL];
+        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:googleHomeURL];
         [self.webView loadRequest:nsRequest];
         [self.view addSubview:self.webView];
     }else if ([self.productName isEqual:@"Google Chromecast"])
     {
-        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:self.productURL];
+        NSURL* googleChromecastURL = [NSURL URLWithString:self.productURL];
+        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:googleChromecastURL];
         [self.webView loadRequest:nsRequest];
         [self.view addSubview:self.webView];
     }
@@ -114,17 +136,20 @@
 {
     if([self.productName isEqual:@"Twitter Cards"])
     {
-        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:self.productURL];
+        NSURL* twitterCardsURL = [NSURL URLWithString:self.productURL];
+        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:twitterCardsURL];
         [self.webView loadRequest:nsRequest];
         [self.view addSubview:self.webView];
     }else if ([self.productName isEqual:@"Twitter Kit"]){
         
-        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:self.productURL];
+        NSURL* twitterKitURL = [NSURL URLWithString:self.productURL];
+        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:twitterKitURL];
         [self.webView loadRequest:nsRequest];
         [self.view addSubview:self.webView];
     }else if ([self.productName isEqual:@"TweetDeck"]){
         
-        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:self.productURL];
+        NSURL* tweetDeckURL = [NSURL URLWithString:self.productURL];
+        NSURLRequest* nsRequest = [NSURLRequest requestWithURL:tweetDeckURL];
         [self.webView loadRequest:nsRequest];
         [self.view addSubview:self.webView];
     }

@@ -112,6 +112,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     self.editProductName.text = self.currentProduct.productName;
     self.editProductPic.text = self.currentProduct.productLogo;
+    self.editProductURL.text = self.currentProduct.productURL;
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -130,9 +131,11 @@
 {
     if(self.editProductName.hasText && self.editProductPic.hasText && self.editProductURL.hasText)
     {
-        self.currentProduct.productName = self.editProductName.text;
-        self.currentProduct.productURL = [NSURL URLWithString:self.editProductURL.text];
-        self.currentProduct.productLogo = self.editProductPic.text;
+//        self.currentProduct.productName = self.editProductName.text;
+//        self.currentProduct.productURL = self.editProductURL.text;
+//        self.currentProduct.productLogo = self.editProductPic.text;
+        
+        [self.dao modifyProduct:self.currentProduct forCompany:self.currentCompany withName:self.editProductName.text andPic:self.editProductPic.text andURL:self.editProductURL.text];
         
         UINavigationController *navigationController = self.navigationController;
         [navigationController popViewControllerAnimated:YES];

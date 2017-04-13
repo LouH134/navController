@@ -13,6 +13,7 @@
 #import "DAO.h"
 #import "AddCompanyVC.h"
 #import "EditCompanyVC.h"
+#import "NavControllerAppDelegate.h"
 
 @interface CompanyVC : UIViewController<UITableViewDelegate, UITableViewDataSource, DAODelegate>
 
@@ -22,6 +23,8 @@
 @property (nonatomic, retain) AddCompanyVC *addCompanyVC;
 @property (nonatomic, retain) EditCompanyVC* editCompany;
 @property (nonatomic, retain) DAO* dataManager;
+@property (retain, nonatomic) IBOutlet UIView *emptyView;
+
 
 
 @end

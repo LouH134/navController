@@ -45,10 +45,10 @@
     {
         //call dao that calls company class add new company to mutablearray
         Company *newlyAddedCompany = [[Company alloc] initWithCompany:self.companyNameTextField.text andLogo:self.companyPicTextField.text andStockSymbol:self.companyStockTxtField.text];
-        [self.dao insertNewCompany:newlyAddedCompany];
+        
+        [self.dao addCompany:newlyAddedCompany];
         NSLog(@"saved");
-        UINavigationController *navigationController = self.navigationController;
-        [navigationController popViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
         
     }else{
         [self checkForText];
