@@ -28,10 +28,21 @@
     {
         self.companyName = name;
         self.companyLogo = logo;
-        self.productsArray = [[NSMutableArray alloc] init];
+        self.productsArray = [[[NSMutableArray alloc] init] autorelease];
         self.stockSymbol = symbol;
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [_companyName release];
+    [_companyLogo release];
+    [_productsArray release];
+    [_stockSymbol release];
+    [_stockPrice release];
+    [super dealloc];
+    
 }
 
 @end

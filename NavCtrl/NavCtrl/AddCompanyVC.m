@@ -47,7 +47,6 @@
         Company *newlyAddedCompany = [[Company alloc] initWithCompany:self.companyNameTextField.text andLogo:self.companyPicTextField.text andStockSymbol:self.companyStockTxtField.text];
         
         [self.dao addCompany:newlyAddedCompany];
-        NSLog(@"saved");
         [self.navigationController popViewControllerAnimated:YES];
         
     }else{

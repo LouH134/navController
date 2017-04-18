@@ -110,6 +110,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
     self.editProductName.text = self.currentProduct.productName;
     self.editProductPic.text = self.currentProduct.productLogo;
     self.editProductURL.text = self.currentProduct.productURL;

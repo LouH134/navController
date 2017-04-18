@@ -39,7 +39,7 @@
     {
         Product* newlyAddedProduct = [[Product alloc]initWithProduct:self.productName.text andLogo:self.productPicTextField.text andURL:self.productURL.text];
         [self.dao addProduct:newlyAddedProduct forCompany:self.currentCompany];
-        
+        [newlyAddedProduct release];
         [self.navigationController popViewControllerAnimated:YES];
     }else{
         [self checkForText];
@@ -61,6 +61,8 @@
 
 - (void)dealloc {
     [_productName release];
+    [_dao release];
+    [_currentCompany release];
     [_productPicTextField release];
     [_productURL release];
     [super dealloc];

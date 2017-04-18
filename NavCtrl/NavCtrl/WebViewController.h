@@ -23,4 +23,6 @@
 @property (nonatomic, retain) Company* currentCompany;
 @property (nonatomic, retain) Product* currentProduct;
 
+-(void)dealloc;
+
 @end

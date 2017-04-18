@@ -15,7 +15,7 @@
 {
     
     // Override point for customization after application launch.
-    CompanyVC *rootController = [[CompanyVC alloc]init];
+    CompanyVC *rootController = [[[CompanyVC alloc]init]autorelease];
     self.navigationController = [[UINavigationController alloc]
                             initWithRootViewController:rootController];
     
@@ -118,6 +118,14 @@
     }
 }
 
+-(void)dealloc
+{
+    [_window release];
+    [_navigationController release];
+    [_persistentContainer release];
+    [super dealloc];
+    
+}
 
 
 @end

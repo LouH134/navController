@@ -22,4 +22,12 @@
     return self;
 }
 
+-(void)dealloc
+{
+    [_productName release];
+    [_productLogo release];
+    [_productURL release];
+    [super dealloc];
+}
+
 @end

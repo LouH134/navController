@@ -16,4 +16,6 @@
 
 -(id)initWithProduct:(NSString*)name andLogo: (NSString*)logo andURL:(NSString*)productURL;
 
+-(void)dealloc;
+
 @end

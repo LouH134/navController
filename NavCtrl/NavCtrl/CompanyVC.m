@@ -23,7 +23,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(goToAddVC)];
-    self.productViewController = [[ProductVC alloc]init];
+    self.productViewController = [[[ProductVC alloc]init]autorelease];
     self.title = @"Mobile device makers";
     
     //companies and products are only made once
@@ -55,6 +55,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
     [self.tableView reloadData];
     [self.dataManager getURLString];
     [self.dataManager getAPIData];

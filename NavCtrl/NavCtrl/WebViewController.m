@@ -25,7 +25,7 @@
 
 -(void)goToEditProductVC
 {
-    self.editProduct = [[EditProductVC alloc]init];
+    self.editProduct = [[[EditProductVC alloc]init]autorelease];
     self.editProduct.currentProduct = self.currentProduct;
     self.editProduct.currentCompany = self.currentCompany;
     [self.navigationController pushViewController:self.editProduct animated:YES];
@@ -158,14 +158,18 @@
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
     NSLog(@"Loaded");
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)dealloc
+{
+    [_webView release];
+    [_productName release];
+    [_productURL release];
+    [_productName release];
+    [_companyName release];
+    [_editProduct release];
+    [_currentCompany release];
+    [_currentProduct release];
+    [super dealloc];
 }
-*/
 
 @end

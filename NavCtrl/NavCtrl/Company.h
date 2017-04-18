@@ -22,5 +22,7 @@
 
 -(id)initWithCompany:(NSString*)name andLogo:(NSString*)logo andStockSymbol:(NSString*)symbol;
 
+- (void)dealloc;
+
 @end
 

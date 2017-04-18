@@ -94,6 +94,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:YES];
     self.companyNameTextField.text = self.currentCompany.companyName;
     self.companyPicTextField.text = self.currentCompany.companyLogo;
 }

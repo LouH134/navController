@@ -34,6 +34,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
     [self.tableView reloadData];
     self.companyLogo.image = [UIImage imageNamed:self.currentCompany.companyLogo];
     self.companyTitle.text = self.currentCompany.companyName;
@@ -47,7 +48,7 @@
 
 -(void)goToProductVC
 {
-    AddProductVC* goToProductVC = [[AddProductVC alloc]init];
+    AddProductVC* goToProductVC = [[[AddProductVC alloc]init]autorelease];
     goToProductVC.currentCompany = self.currentCompany;
     [self.navigationController
      pushViewController:goToProductVC
@@ -75,7 +76,7 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier]autorelease];
     }
     // Configure the cell...
     Product* currentProduct = [self.currentCompany.productsArray objectAtIndex:[indexPath row]];
@@ -135,7 +136,7 @@
 {
     
  // Create the next view controller.
-    self.detailViewController = [[WebViewController alloc] init];
+    self.detailViewController = [[[WebViewController alloc] init]autorelease];
     Product* currentProduct = [self.products objectAtIndex:[indexPath row]];
 
         self.detailViewController.companyName = self.title;
@@ -151,7 +152,7 @@
     
 }
 - (IBAction)addProduct:(id)sender {
-    AddProductVC* goToProductVC = [[AddProductVC alloc]init];
+    AddProductVC* goToProductVC = [[[AddProductVC alloc]init]autorelease];
     goToProductVC.currentCompany = self.currentCompany;
     [self.navigationController
      pushViewController:goToProductVC
@@ -160,7 +161,12 @@
  
 - (void)dealloc {
     [_tableView release];
+    [_products release];
+    [_detailViewController release];
+    [_currentCompany release];
+    [_editProduct release];
     [_companyLogo release];
+    [_dataManager release];
     [_companyTitle release];
     [super dealloc];
 }

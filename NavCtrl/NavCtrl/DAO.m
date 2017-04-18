@@ -31,10 +31,10 @@
         
         NavControllerAppDelegate *app = (NavControllerAppDelegate*)[[UIApplication sharedApplication] delegate];
         self.context = app.persistentContainer.viewContext;
-        NSUndoManager *undoManager = [[NSUndoManager alloc] init];
+        NSUndoManager *undoManager = [[[NSUndoManager alloc] init]autorelease];
         [self.context setUndoManager:undoManager];
-        self.companies = [[NSMutableArray alloc] init];
-        self.managedCompaniesArray = [[NSMutableArray alloc]init];
+        self.companies = [[[NSMutableArray alloc] init]autorelease];
+        self.managedCompaniesArray = [[[NSMutableArray alloc]init]autorelease];
 
         [self fetchManagedCompanies];
         
@@ -352,6 +352,15 @@
         [self fetchManagedCompanies];
     }
     
+}
+
+-(void)dealloc
+{
+    [_companies release];
+    [_delegate release];
+    [_context release];
+    [_managedCompaniesArray release];
+    [super dealloc];
 }
 
 @end
